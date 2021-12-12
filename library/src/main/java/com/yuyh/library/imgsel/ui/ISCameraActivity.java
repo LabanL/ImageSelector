@@ -86,7 +86,7 @@ public class ISCameraActivity extends AppCompatActivity {
 
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-        if (cameraIntent.resolveActivity(getPackageManager()) != null) {
+        if (cameraIntent.resolveActivity(getPackageManager()) != null || getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
             tempPhotoFile = new File(FileUtils.createRootPath(this) + "/" + System.currentTimeMillis() + ".jpg");
             LogUtils.e(tempPhotoFile.getAbsolutePath());
             FileUtils.createFile(tempPhotoFile);
